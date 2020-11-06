@@ -1,4 +1,4 @@
-# HOMECHEF
+# MOmmys cooking
   This project is a part of Applied Software Engineering - 1 ( ASE ) Course at IIIT Sri City. The project provides a platform for home entrepreneurs who want to cook and earn. It also helps users in finding volunteers to help for an event.
   
 #### You can find our project live [here](http://homechef30.pythonanywhere.com/)
@@ -13,11 +13,11 @@
 #### 1. Fork the repository :fork_and_knife:
 #### 2. Clone your fork to your local machine
 ```
-git clone https://github.com/<your_username>/HOMECHEF.git
+git clone https://github.com/<your_username>/Mommys-cooking.git
 ```
 #### 3. Setup upstream remote
 ```
-git remote add upstream https://github.com/Rukmini-Meda/HOMECHEF.git
+git remote add upstream https://github.com/username/Mommys-cooking.git
 ```
 #### 4. Verify remote - upstream URL should refer to this repository and origin should refer to your fork
 ```
