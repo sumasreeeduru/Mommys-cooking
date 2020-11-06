@@ -1,0 +1,92 @@
+{% extends 'homechef/base.html' %}
+{% load static %}
+{% block content %}
+  <link rel="stylesheet" href="{% static 'homechef/css/display.css' %}">
+<div class="description">
+    <img src="{% static 'homechef/images/profilepic4.png' %}" class="rounded float-left">
+    <div class="name">
+      <h3 class="text-left">{{data.name}}</h3>
+      <p>{{data.email}}</p>
+      <p>{{data.phone}}</p>
+    </div>
+     <div class="experience">
+       <h3>Category</h3>
+       <p>{{data.description}}</p>
+    
+    </div>
+    <div class="star">
+      <h3>Rating</h3>
+      {% with ""|center:data.rating as range %}
+        {% for i in range %}
+            <span class="fa fa-star checked"></span>
+        {%endfor %}
+      {% endwith %}
+    </div>
+    <div class="address">
+        <h3>Address</h3>
+        <p>{{data.address}}</p>
+     
+     </div>
+     <div class="timings">
+        <h3>Timings</h3>
+        <p>{{data.timings}}</p>
+     </div>   
+</div>
+<div class="container">
+<div class="row row-cols-1 row-cols-md-4">
+  {% for food in data.food_list %}
+    <div class="col mb-4">
+      <a href="{% url 'product' data.id food.id %}" style="color:black;">
+      <div class="card" style="width:12rem;height:18rem;">
+        <img src="{% static 'homechef/images/food_img1.jpg' %}" class="card-img-top"  alt="...">
+        <!-- <div class="card-body"> -->
+          <h5 class="card-title">{{food.itemname}}</h5>
+          <!-- <p class="card-text">     expert in sweets</p> -->
+        </a>
+        <div class="star">
+          <h6>Rating</h6>
+          {% with ""|center:food.rating as range %}
+            {% for i in range %}
+                <span class="fa fa-star checked"></span>
+            {%endfor %}
+          {% endwith %}
+        </div>
+        <h4 class="font-weight-bold blue-text">
+          <strong>
+             Rs.
+             {% if food.discount_price %}
+             {{ food.discount_price }}
+             {% else %}
+             {{ food.price }}
+             {% endif %}
+          </strong>
+        </h4>
+        </div>
+      <!-- </div> -->
+    </div>
+  {% endfor %}
+</div>
+<div class="container"> 
+  
+
+  <!-- Declare the pagination class -->
+  <ul class="pagination"> 
+
+      <!-- Specify the disabled class to style this item disabled -->
+      <li class="page-item disabled"> 
+
+          <!-- Specify tabindex to make the link non navigatable -->
+          <a class="page-link" href="#" tabindex="-1">Previous</a> 
+      </li> 
+      <li class="page-item"><a class="page-link" href="#">1</a></li> 
+      <li class="page-item"> 
+          <a class="page-link" href="#">2</a> 
+      </li> 
+      <li class="page-item"><a class="page-link" href="#">3</a></li> 
+      <li class="page-item"> 
+          <a class="page-link" href="#">Next</a> 
+      </li> 
+  </ul> 
+</div> 
+    </div>
+{% endblock %}

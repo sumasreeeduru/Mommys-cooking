@@ -1,0 +1,76 @@
+{% extends 'homechef/base.html' %}
+{% load static %}
+{% block content %}
+  <link rel="stylesheet" href="{% static 'homechef/css/vendorlist.css' %}">
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    
+    <h1 style="color: white;padding: 10px;font-size: 35px;">{{ data.itemname }}</h1>
+      </nav>
+  <div class="container">
+              
+    <div class="row row-cols-1 row-cols-md-5 my-4">
+      <!-- <div class="shadow p-3 mb-5 bg-white rounded"> -->
+        {% for sample in data.vendor_list %}
+              <div class="col mb-4">
+                <!-- <div class="row justify-content-center">
+                <div class="box shadow"> -->
+                  <a href="{% url 'product' sample.id data.id %}" style="color:black;">
+                <div class="card" style="width:12rem;height:20rem;">
+                  <img src="{% static 'homechef/images/profile01.svg' %}" class="card-img-top"  alt="...">
+                  <!-- <div class="card-body"> -->
+                    <h5 class="card-title">{{sample.name}}</h5>
+                    <p class="card-text">{{sample.description}}</p>
+                    </a>
+                  
+                    <div class="star">
+                      <h6>Rating</h6>
+                      {% with ""|center:sample.rating as range %}
+                        {% for i in range %}
+                            <span class="fa fa-star checked"></span>
+                        {%endfor %}
+                      {% endwith %}
+                    </div>
+                  <!-- </div>
+                  </div> -->
+                <!-- </div> -->
+              </div>
+
+            </div>
+        {% endfor %}
+  </div>
+  <div class="container"> 
+  
+
+    <!-- Declare the pagination class -->
+    <ul class="pagination"> 
+  
+        <!-- Specify the disabled class to style this item disabled -->
+        <li class="page-item disabled"> 
+  
+            <!-- Specify tabindex to make the link non navigatable -->
+            <a class="page-link" href="#" tabindex="-1">Previous</a> 
+        </li> 
+        <li class="page-item"><a class="page-link" href="#">1</a></li> 
+        <li class="page-item"> 
+            <a class="page-link" href="#">2</a> 
+        </li> 
+        <li class="page-item"><a class="page-link" href="#">3</a></li> 
+        <li class="page-item"> 
+            <a class="page-link" href="#">Next</a> 
+        </li> 
+    </ul> 
+  </div> 
+  </div>
+{% endblock %}
+
+
+
+    
+
+
+
+
+
+
+
+
